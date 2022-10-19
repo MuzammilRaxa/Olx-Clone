@@ -1,10 +1,13 @@
 import React from "react";
-import { Header } from "../Components";
+import { Footer, Header } from "../Components";
+import AdSession from "./AdSession";
 
 const Home = () => {
   return (
-    <div>
-        <Header/>
+    <div className="flex flex-col">
+      <Header />
+      <AdSession />
+      <Footer />
     </div>
   );
 };

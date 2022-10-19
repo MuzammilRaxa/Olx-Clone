@@ -1,10 +1,11 @@
 import React from "react";
 import image from "../images/olxSlide.jpeg";
-import adImage from "../images/olxSlide.jpeg";
+import adImage from "../images/amazon-advertising.png";
+import adImage2 from "../images/adImages.png";
 
 const Coursel = () => {
   return (
-    <div>
+    <div className="hidden md:block">
       <div
         id="carouselExampleInterval"
         s
@@ -47,8 +48,13 @@ const Coursel = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      <div className="ads">
-        <img src={adImage} alt="Ads Placement" />
+      <div className="ads w-[100%] h-28 mx-auto my-6 flex justify-center hover:cursor-pointer">
+        <img
+          src={adImage}
+          alt="Ads Placement"
+          className="w-[40%] h-[100%] object-cover"
+        />
+        <img src={adImage2} alt="Ads Placement" className="w-[40%] h-[100%]" />
       </div>
     </div>
   );
