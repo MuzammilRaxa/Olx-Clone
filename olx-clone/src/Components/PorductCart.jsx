@@ -1,21 +1,20 @@
 import React from "react";
 
-const PorductCart = () => {
-
+const PorductCart = (product) => {
   const iconStyle =
     "h-[40px] w-[40px] rounded-full bg-white flex items-center justify-center m-3 hover:bg-[#894af3] hover:text-white hover:scale-[1.1] ease-in duration-100 cursor-pointer";
-console.log(db)
+  console.log("product.name", product.name, "product", product);
 
   return (
     <div className="h-72 w-[24%] border-2 rounded-xl border-black">
       <div className="flex-col items-center  justify-between">
-        <img src="../helpers/img/cu3.png" alt="product" className="h-[180px]" />
+        <img src={product.image} alt="product" className="h-[180px]" />
         <div className="text-center">
-          <h5>{"Chiken"}</h5>
-          <p>${"15"}</p>
+          <h5>{product.name}</h5>
+          <p>Rs:{product.price}</p>
         </div>
       </div>
-      <div className={`flex items-center justify-center ease-in duration-100 `}>
+      <div className={`flex items-center justify-center ease-in duration-100`}>
         <div className={iconStyle}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
