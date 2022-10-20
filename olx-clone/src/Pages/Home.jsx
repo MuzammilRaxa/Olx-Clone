@@ -1,12 +1,14 @@
 import React from "react";
-import { Footer, Header } from "../Components";
+import { Footer, Header, PorductDetails } from "../Components";
 import AdSession from "./AdSession";
 
 const Home = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col justify-center items-center">
       <Header />
-      <AdSession />
+      {/* <AdSession /> */}
+      <PorductDetails />
+
       <Footer />
     </div>
   );

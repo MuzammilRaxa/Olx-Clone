@@ -6,15 +6,13 @@ const AdSession = () => {
   const [products, setProducts] = useState();
   const getAllProducts = async () => {
     const allProducts = await getProducts();
-    // console.log("allProducts", allProducts);
     setProducts(allProducts);
   };
-  // console.log("products", products);
   useEffect(() => {
     getAllProducts();
   }, []);
   return (
-    <div className="flex flex-wrap justify-between m-5">
+    <div className="flex flex-wrap gap-3 m-5 mx-auto">
       {products?.map((product, index) => (
         <PorductCart product={product} />
       ))}
