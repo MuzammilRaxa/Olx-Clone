@@ -5,11 +5,7 @@ import AdSession from "./AdSession";
 const Home = () => {
   return (
     <div className="flex flex-col justify-center items-center">
-      <Header />
-      {/* <AdSession /> */}
-      <PorductDetails />
-
-      <Footer />
+      <AdSession />
     </div>
   );
 };

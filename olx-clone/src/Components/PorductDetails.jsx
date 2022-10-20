@@ -1,6 +1,10 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+
 
 const PorductDetails = () => {
+const itemDetails = useParams()
+
   return (
     <div className="flex w-[80%] p-5 gap-2 justify-center flex-col sm:flex-row sm:mt-4">
       {/* <div className="flex-[2] bg-red-300 MainImage h-510 w-508 border-2"></div>
