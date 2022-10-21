@@ -5,7 +5,7 @@ import Home from './Pages/Home';
 
 function App() {
   return (
-    <>
+    <div className='flex flex-col items-center'>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -13,7 +13,7 @@ function App() {
       </Routes>
       <Footer />
 
-    </>
+    </div>
   );
 }
 

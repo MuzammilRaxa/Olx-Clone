@@ -1,50 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const PorductDetails = () => {
   const itemDetails = useParams();
   const getDetails = itemDetails.id.split("-");
+  const [product, setProduct] = useState({});
 
   let lastElementodID = getDetails[getDetails.length - 1];
 
   const db = getFirestore();
-  // const getSingleDoc = async () => {
-  //   const colRef = doc(db, "items", itemDetails.id);
-  //   console.log( 'getSingleDocgetSingleDoc',doc.data(), doc.id);
-  // };
-
-  const getProducts = async () => {
+  const getProduct = async () => {
     const colRef = doc(db, "items", lastElementodID);
     try {
       const product = await getDoc(colRef);
-      console.log("product", product.data());
+      setProduct(product.data());
     } catch (error) {
       console.log("error.message", error.message);
     }
   };
+
   useEffect(() => {
-    getProducts();
+    getProduct();
   }, []);
 
-  return (
-    <div className="flex w-[80%] p-5 gap-2 justify-center flex-col sm:flex-row sm:mt-4">
-      {/* <div className="flex-[2] bg-red-300 MainImage h-510 w-508 border-2"></div>
-      <div className="BottomImage">
-        <div className=""> </div>
-      </div>
-      <div className="flex flex-col flex-[1.5] gap-2 ">
-        <div className=" bg-slate-400 RightBox h-36 w-375 border-2"></div>
-        <div className=" bg-zinc-300 RightBox h-56 w-375 border-2"></div>
-      </div> */}
+  console.log("productState", product);
+  console.log(product.name, product.image, product.id);
 
-      <div className="flex-[1.5] pr-3  h-510 w-508 border-2 flex items-center justify-center">
-        <img src="" className="product_img w-[270px]" alt="product_image" />
+  return (
+    <div className="flex w-[95%] p-5 gap-2  justify-center flex-col sm:flex-row sm:mt-4">
+      <div className="flex-[3] pr-3  bg-slate-600 h-510 w-508 border-2 flex items-center justify-center">
+        <img
+          src={product.image}
+          className="product_img h-[100%]"
+          alt="product_image"
+        />
       </div>
-      <div className="flex-[1]  border p-4 sm:px-14 sm:p-5 flex flex-col items-center sm:flex-col ">
+      <div className="flex-[1.8]  border p-4 sm:px-14 sm:p-5 flex flex-col items-center sm:flex-col ">
         <div className="h-44 w-[100%] border flex flex-col items-start p-2 justify-around">
           <div className="w-[100%] flex justify-between">
-            <p className=" text-3xl">Rs {"100"}</p>
+            <p className=" text-3xl">Rs {product.price}</p>
             <div className="flex gap-3 justify-start">
               <div className="">
                 <svg
@@ -82,11 +77,11 @@ const PorductDetails = () => {
             </div>
           </div>
           <h1 className="title text-lg text-center mobile:text-[30px]">
-            {"product.name"}
+            {product.name}
           </h1>
-          <div className="w-[100%] mt-3 flex justify-between">
-            <p>Seller address...</p>
-            <p className="text-sm">1day ago</p>
+          <div className="w-[100%] mt-3 flex items-end justify-between">
+            <p className="">Seller address...</p>
+            <p className="text-xs">1 day ago</p>
           </div>
         </div>
         <button className="text-white flex justify-center items-center h-11 w-[80%] bg-[#002f34] rounded-sm shadow-md mt-[30px] p-3">
