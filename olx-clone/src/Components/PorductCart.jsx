@@ -6,16 +6,14 @@ const PorductCart = ({ product }) => {
   const productId = product.id;
   const productName = product.name;
 
-  const param = `${productName}${productId}`;
-  console.log("productId", productId, "productName", productName);
+  const concatedNameId = `${productName} idd ${productId}`;
+  const modifiedUrl = concatedNameId.split(" ").join("-");
+
   const iconStyle =
     "h-[24px] w-[24px] rounded-full bg-white flex items-center justify-center hover:bg-[#212529] hover:text-[#212529]  hover:scale-[1.1] ease-in duration-100 cursor-pointer";
-  console.log("product.name", product.name, "product", product);
 
   return (
-    <Link
-      to={`/porductDetails/${decodeURIComponent(productName)}-idd-${productId}`}
-    >
+    <Link to={`/porductDetails/${modifiedUrl}`}>
       <div className="h-72 w-[300px] overflow-hidden border my-2 rounded-xl border-[#ccd5d6] flex flex-col items-center">
         <div className="w-[100%]  flex flex-1 flex-col items-center text-center justify-between bg-[#222]">
           <div className="h-40 w-[100%]  ">

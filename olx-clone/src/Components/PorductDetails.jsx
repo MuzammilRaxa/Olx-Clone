@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const PorductDetails = () => {
-const itemDetails = useParams()
+  const itemDetails = useParams();
+  const getDetails = itemDetails.id.split("-");
+
+  let lastElementodID = getDetails[getDetails.length - 1];
+
+  const db = getFirestore();
+  // const getSingleDoc = async () => {
+  //   const colRef = doc(db, "items", itemDetails.id);
+  //   console.log( 'getSingleDocgetSingleDoc',doc.data(), doc.id);
+  // };
+
+  const getProducts = async () => {
+    const colRef = doc(db, "items", lastElementodID);
+    try {
+      const product = await getDoc(colRef);
+      console.log("product", product.data());
+    } catch (error) {
+      console.log("error.message", error.message);
+    }
+  };
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <div className="flex w-[80%] p-5 gap-2 justify-center flex-col sm:flex-row sm:mt-4">

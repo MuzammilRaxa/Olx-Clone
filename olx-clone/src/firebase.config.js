@@ -1,5 +1,5 @@
 import { getApp, getApps, initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from 'firebase/firestore'
+import { getFirestore, collection, getDocs, getDoc, doc } from 'firebase/firestore'
 // import { getStorage } from 'firebase/storage'
 export const getProducts = async () => {
     const colRef = collection(db, 'items')
@@ -15,6 +15,20 @@ export const getProducts = async () => {
         console.log(error.message)
     }
 }
+
+
+// export const getEachProduct = async () => {
+//     const colRef = doc(db, "items", doc.id);
+//     console.log("Docccccccccc", doc.id);
+//     try {
+//         const produts = await getDoc(colRef);
+//     } catch (error) {
+//         console.log(error.message);
+//     }
+// };
+
+
+
 
 
 const firebaseConfig = {
