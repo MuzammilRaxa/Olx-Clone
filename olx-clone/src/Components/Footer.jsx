@@ -1,8 +1,8 @@
 import React from "react";
 import footerAd from "../images/olxMobileApp.webp";
 import PlayStoreLogo from "../images/iconGooglePlay.svg";
-import AppStoreLogo from "../images/app-store.png";
 import AppGallery from "../images/iconAppGallery.svg";
+import AppStoreLogo from "../images/iconAppStore.svg";
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="bg-slate-300 flex flex-1.5 h-52">
         <img src={footerAd} alt="" className="object-cover" />
       </div>
-      <div className="hidden bg-white flex-1 px-8  h-52 lg:flex items-center ">
+      <div className="hidden bg-white flex-1 pl-8  h-52 lg:flex items-center ">
         <div className="h-[80%] border-r-2">
           <h1 className="font-bold pt-2 pb-3 text-3xl">TRY THE OLX APP</h1>
           <p className="font-medium text-xl">
@@ -18,16 +18,24 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <div className="bg-white flex flex-col flex-1 h-52 ml-8 py-10">
+      <div className="bg-white flex flex-col flex-[1.3] h-52 w-[100%] pl-8 pr-1 py-10">
         <p className="font-bold">GET YOUR APP TODAY</p>
         <div className="flex gap-3 justify-between pt-12">
           <img
-            src="../images/iconGooglePlay.svg"
+            src={PlayStoreLogo}
             alt="App-Store"
-            className="h-16"
+            className="w-[30%] hover:cursor-pointer"
           />
-          <img src="../images/app-store.png" alt="Play-Store" />
-          <img src="../images/iconAppGallery.svg" alt="App-Gallery" />
+          <img
+            src={AppGallery}
+            className="w-[30%] hover:cursor-pointer"
+            alt="Play-Store"
+          />
+          <img
+            src={AppStoreLogo}
+            className="w-[30%] hover:cursor-pointer"
+            alt="App-Gallery"
+          />
         </div>
       </div>
     </div>
