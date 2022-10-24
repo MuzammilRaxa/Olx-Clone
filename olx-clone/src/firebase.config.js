@@ -1,5 +1,5 @@
-import { getApp, getApps, initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, getDoc, doc } from 'firebase/firestore'
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs } from 'firebase/firestore'
 // import { getStorage } from 'firebase/storage'
 export const getProducts = async () => {
     const colRef = collection(db, 'items')
@@ -9,7 +9,6 @@ export const getProducts = async () => {
         produts.docs.forEach((doc) => {
             items.push({ ...doc.data(), id: doc.id })
         })
-        console.log(items)
         return items
     } catch (error) {
         console.log(error.message)

@@ -24,9 +24,6 @@ const PorductDetails = () => {
     getProduct();
   }, []);
 
-  console.log("productState", product);
-  console.log(product.name, product.image, product.id);
-
   return (
     <div className="flex w-[95%] p-5 gap-2  justify-center flex-col sm:flex-row sm:mt-4">
       <div className="flex-[3] pr-3  bg-slate-600 h-510 w-508 border-2 flex items-center justify-center">

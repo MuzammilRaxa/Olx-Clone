@@ -13,8 +13,8 @@ const AdSession = () => {
   }, []);
   return (
     <div className="flex flex-wrap gap-3 m-5 justify-between ">
-      {products?.map((product, index) => (
-        <PorductCart product={product} />
+      {products?.map((product) => (
+        <PorductCart key={product.id} product={product} />
       ))}
     </div>
   );
